@@ -1,8 +1,8 @@
 function solve(month, year) {
 
-    let x = Date(year, month);
-
-    console.log(x);
+    let monthDays = new Date(year, month, 0).getDate();
+    
+    console.log(monthDays);
 }
 
 solve(1, 2012);
