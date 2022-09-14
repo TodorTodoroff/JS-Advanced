@@ -1,17 +1,20 @@
-function solve(num1, num2){
+function solve(num) {
+    let result = true;
+    let sum = 0;
+    let numAsString = num.toString();
+    let firstValue = numAsString[0];
 
 
-    let x = Number(num1);
-    let y = Number(num2);
+    for (let i = 0; i < numAsString.length; i++) {
+        if (firstValue !== numAsString[i]){
+            result = false;
+        }
+        sum += Number(numAsString[i]);
+    }
 
-    while(y) {
-        var t = y;
-        y = x % y;
-        x = t;
-      }
-
-console.log(x)
-
+    console.log(result);
+    console.log(sum);
 }
-solve(15, 5)
-solve(2154, 458)
+
+solve(2222222);
+solve(1234);
