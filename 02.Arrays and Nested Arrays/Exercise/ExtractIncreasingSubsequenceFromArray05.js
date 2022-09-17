@@ -4,7 +4,7 @@ function solve(arr) {
 
     for (let i = 0; i < arr.length; i++) {
         let current = Number(arr[i]);
-        if (current > min) {
+        if (current >= min) {
             min = current;
             reuslt.push(current);
         }
