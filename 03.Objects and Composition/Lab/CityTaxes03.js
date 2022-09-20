@@ -14,5 +14,4 @@ function solve(name, population, treasury) {
             this.treasury -= Math.floor(this.treasury * percentage / 100);
         }
     };
-
 }
