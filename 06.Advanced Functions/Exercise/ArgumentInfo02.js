@@ -1,6 +1,6 @@
-function solve() {
+function solve(...params) {
     let typeCounter = {};
-    for (const arg of arguments) {
+    for (const arg of params) {
       console.log(`${typeof arg}: ${arg}`);
   
       typeCounter[typeof arg]++; 
