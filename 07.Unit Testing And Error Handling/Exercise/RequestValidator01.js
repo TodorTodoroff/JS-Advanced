@@ -1,6 +1,6 @@
 function solve(obj) {
     let validMethod = ["GET", "POST", "DELETE", "CONNECT"];
-    let uriPattern = /^[/w.]+$/g;
+    let uriPattern = /^[\w.]+$/g;
     let supportedVersion = ["HTTP/0.9", "HTTP/1.0", "HTTP/1.1", "HTTP/2.0"];
     let specialChar = [`<`, `>`, `\\`, `&`, `'`, `"`];
 
@@ -11,7 +11,7 @@ function solve(obj) {
     if (!obj.hasOwnProperty("uri")) {
         throw new Error("Invalid request header: Invalid URI");
     }
-    if (obj.uri !== "*" && obj.uri.match(uriPattern)) {
+    if (obj.uri !== "*" && !obj.uri.match(uriPattern)) {
         throw new Error("Invalid request header: Invalid URI");
     }
     if (!supportedVersion.includes(obj.version)) {
