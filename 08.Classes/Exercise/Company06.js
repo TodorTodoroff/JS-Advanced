@@ -17,10 +17,10 @@ class Company {
         }
 
         this.departments[department].employees.push({ name, salary, position });
-
+        this._updateDepartmentValues(this.departments[department], salary);
         return `New employee is hired. Name: ${name}. Position: ${position}`;
     }
-    updateDepartmentValues(department, salary) {
+    _updateDepartmentValues(department, salary) {
         department.sumSalary += Number(salary);
         department.avgSalary = department.sumSalary / department.employees.length;
     }
