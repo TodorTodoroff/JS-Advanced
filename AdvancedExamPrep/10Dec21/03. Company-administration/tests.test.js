@@ -59,7 +59,7 @@ describe("Tests …", function () {
             assert.throw(() => (companyAdministration.firedEmployee("2", "Pesho")), "Invalid input");
             assert.throw(() => (companyAdministration.firedEmployee(["Petar"], 2)), "Invalid input");
             assert.throw(() => (companyAdministration.firedEmployee(["Petar"], -1)), "Invalid input");
-            assert.throw(() => (companyAdministration.firedEmployee(["Petar"], "pesho")), "Invalid input");
+             assert.throw(() => (companyAdministration.firedEmployee(["Petar"], "pesho")), "Invalid input");
         });
         it("Test method firedEmployee  correct", () => {
             assert.equal(companyAdministration.firedEmployee(["Petar", "Ivan", "George"], 1), "Petar, George");
