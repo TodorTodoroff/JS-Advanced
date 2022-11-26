@@ -4,6 +4,7 @@ const main = document.getElementsByTagName("main")[0];
 const form = section.querySelector("form");
 form.addEventListener("submit", onSubmit);
 const themeContentWrapper = document.getElementById("theme-content-wrapper");
+const commentSection = document.querySelector(".comment");
 let id;
 
 section.remove();
@@ -47,7 +48,7 @@ function topicTemplate(topic, comments) {
                  <p class="post-content">${topic.postText}</p>
             </div>`;
 
-    const commentElements = Object.values(comments).forEach(com => {
+    comments.forEach(com => {
        const comment = createComment(com);
        commentsContainer.appendChild(comment);
     });
@@ -78,8 +79,6 @@ function onSubmit(e) {
     const formData = new FormData(form);
     const { postText, username } = Object.fromEntries(formData);
     createPost({ postText, username, id, date: new Date() });
-
-
 }
 
 async function createPost(body) {
@@ -92,6 +91,8 @@ async function createPost(body) {
     });
 
     const data = await response.json();
+    const commentEl = createComment(data);
+    commentSection.appendChild(commentEl);
     clearForm();
 }
 
@@ -103,8 +104,9 @@ async function loadComment(id) {
     const url = `http://localhost:3030/jsonstore/collections/myboard/comments`;
     const response = await fetch(url);
     const data = await response.json();
+    const filteredData = Object.values(data).filter(x => x.id === id);
 
-    return data;
+    return filteredData;
 }
 
 async function loadTopic(id) {
