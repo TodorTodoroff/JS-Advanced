@@ -10,16 +10,18 @@ function registerHandler(e) {
 
     const form = e.target;
     const formData = new FormData(form);
-    const { email, password, rePassword } = Object.fromEntries(formData);
+    const { email, password, rePass } = Object.fromEntries(formData);
 
-    if (password !== rePassword) {
+    if (password !== rePass) {
         errorP.textContent = "Error";
         setTimeout(() => {
             errorP.textContent = "";
         }, 2000);
+    } else {
+        onRegister(email, password);
     }
 
-    onRegister(email, password);
+
 }
 
 
@@ -39,14 +41,18 @@ async function onRegister(email, password) {
         const response = await fetch(url, header);
         const data = await response.json();
 
-        if(data.code !== 200){
+        if (data.code && data.code !== 200) {
             throw new Error(data.message)
         }
+        sessionStorage.setItem("email", data.email);
+        sessionStorage.setItem("accessToken", data.accessToken);
+
+        window.location = "./index.html";
 
         return data;
     } catch (e) {
         errorP.textContent = e;
-        setTimeout(()=> {
+        setTimeout(() => {
             errorP.textContent = ""
         }, 2000);
     }
