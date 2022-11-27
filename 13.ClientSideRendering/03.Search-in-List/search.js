@@ -41,7 +41,7 @@ function search() {
 
 function updateCount(){
    const count = document.querySelectorAll(".active").length;
-   const match = count ? html`<p>${count} matches found</p>` : "";
+   const match = html`<p>${count} matches found</p>`;
 
    render(match, resultContainer);
 }

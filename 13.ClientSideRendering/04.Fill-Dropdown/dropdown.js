@@ -23,8 +23,6 @@ function onSubmit(e){
     e.preventDefault();
     const item = document.getElementById("itemText").value;
     item && addItem(item);
-
-    form.reset();
 }
 
 async function addItem(data) {
@@ -36,5 +34,6 @@ async function addItem(data) {
         body: JSON.stringify({text: data})
     })
     obtainInitialData();
+    form.reset();
 }
 
