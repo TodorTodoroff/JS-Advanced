@@ -7,7 +7,7 @@ class CarDealership {
     }
 
     addCar(model, horsepower, price, mileage) {
-        if (!model || horsepower instanceof Number || horsepower < 0 ||
+        if (!model || Number.isInteger(horsepower) || horsepower < 0 ||
             price < 0 || mileage < 0) {
             throw Error("Invalid input!");
         }
