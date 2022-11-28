@@ -9,14 +9,14 @@ export async function registerView(ctx){
     ctx.render(createRegisterTemplate(onSubmit));
 }
 
-function onSubmit(e){
+async function onSubmit(e){
     e.preventDefault();
     const formData = new FormData(e.target);
     const {email, password, rePassword} = Object.fromEntries(formData);
 
     // validation
 
-    register(email, password);
+    await register(email, password);
     context.updateNav();
     context.page.redirect("/");
 }
