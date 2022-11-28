@@ -1,3 +1,6 @@
-export async function catalogView(){
-    console.log("Catalog view");
+import {html} from '../../node_modules/lit-html/lit-html.js'
+
+export async function catalogView(ctx){
+    const test = html`<p>Hello</p>`;
+    ctx.render(test);
 }
