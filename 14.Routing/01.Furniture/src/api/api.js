@@ -8,7 +8,7 @@ async function request(url, options) {
             throw new Error(err.message);
         }
         try {
-            const data = response.json();
+            const data = await response.json();
             return data;
         } catch (error) {
             alert(error.message);

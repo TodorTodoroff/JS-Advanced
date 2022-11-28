@@ -17,7 +17,7 @@ page("/edit/:id", editView);
 page("/login", loginView);
 page("/register", registerView);
 page("/my-furniture", myFurnitureView);
-page("/*", catalogView);
+page("*", catalogView);
 
 page.start();
 
