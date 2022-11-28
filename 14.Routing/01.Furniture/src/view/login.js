@@ -2,20 +2,21 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 import { login } from "../api/data.js"
 
 
-let page = null;
+let context = null;
 export async function loginView(ctx) {
-    page = ctx.page;
+    context = ctx;
     ctx.render(createLoginTemplate(onSubmit));
 }
 
-function onSubmit(e) {
+async function onSubmit(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const { email, password } = Object.fromEntries(formData);
 
-    login(email, password);
-    page.redirect("/");
+    await login(email, password);
+    context.updateNav();
+    context.page.redirect("/");
 }
 
 function createLoginTemplate(handler) {

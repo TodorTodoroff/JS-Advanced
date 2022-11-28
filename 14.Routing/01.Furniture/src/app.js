@@ -1,6 +1,8 @@
 import {render} from '../node_modules/lit-html/lit-html.js';
 import page from '../node_modules/page/page.mjs';
 
+import {logout} from "./api/data.js"
+
 import { catalogView } from "./view/catalog.js";
 import { createView } from "./view/create.js";
 import { detailsView } from "./view/details.js";
@@ -23,6 +25,12 @@ page("*", catalogView);
 
 page.start();
 updateNav();
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+   await logout();
+   updateNav();
+   page.redirect("/");
+});
 
 function updateNav(){
     const userSection = document.getElementById("user");

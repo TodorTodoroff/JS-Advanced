@@ -2,10 +2,10 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 import {register} from "../api/data.js"
 
 
-let page = null;
+let context = null;
 
 export async function registerView(ctx){
-   page = ctx.page;
+    context = ctx;
     ctx.render(createRegisterTemplate(onSubmit));
 }
 
@@ -17,7 +17,8 @@ function onSubmit(e){
     // validation
 
     register(email, password);
-    page.redirect("/");
+    context.updateNav();
+    context.page.redirect("/");
 }
 
 function createRegisterTemplate(handler){

@@ -3,11 +3,16 @@ const host = "http://localhost:3030/";
 async function request(url, options) {
     try {
         const response = await fetch(host + url, options);
-        if (!response) {
-            const error = await response.json();
+        if (!response.ok) {
+            const err = await response.json();
             throw new Error(err.message);
         }
         try {
+
+            if (response.status === 204){
+                return response;
+            }
+
             const data = await response.json();
             return data;
         } catch (error) {
@@ -28,7 +33,7 @@ function getOption(method, body){
         headers: {}
     };
 
-    const user = JSON.parse(localStorage.getItem("userData"));
+    const user = JSON.parse(sessionStorage.getItem("userData"));
     
     if(user){
         const token = user.accessToken;
