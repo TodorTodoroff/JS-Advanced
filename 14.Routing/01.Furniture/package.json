@@ -13,7 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.7",
+    "http-server": "^0.12.3",
     "lit-html": "^2.4.0",
-    "page": "^1.11.6"
+    "mocha": "^10.1.0",
+    "page": "^1.11.6",
+    "playwright-chromium": "^1.9.1"
   }
 }

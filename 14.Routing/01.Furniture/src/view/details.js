@@ -21,7 +21,7 @@ export async function detailsView(ctx) {
  function renderOwnerBtn( isOwner, deleteItem, id){
     return isOwner ? html`
       <div>
-                <a href=”#” class="btn btn-info">Edit</a>
+                <a href="/edit/${id}" class="btn btn-info">Edit</a>
                 <a @click=${deleteItem} data-id=${id}
                 href=”javascript:void(0)” class="btn btn-red">Delete</a>
             </div>
