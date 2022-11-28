@@ -1,3 +1,5 @@
+import {login,register} from './api/data.js'
+
 import page from '../node_modules/page/page.mjs';
 import { catalogView } from "./view/catalog.js";
 import { createView } from "./view/create.js";
@@ -18,4 +20,7 @@ page("/my-furniture", myFurnitureView);
 page("/*", catalogView);
 
 page.start();
+
+window.login = login;
+window.register = register;
 
