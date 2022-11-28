@@ -1,15 +1,36 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
-import { getItemById } from "../api/data.js"
+import { getItemById, deleteItemById } from "../api/data.js"
 
 
+let context = null;
 export async function detailsView(ctx) {
+    context = ctx;
     const id = ctx.params.id;
     const item = await getItemById(id);
     const userData = JSON.parse(sessionStorage.getItem("userData"));
-    ctx.render(detailsTemp(item, userData._id === item._ownerId));
+    ctx.render(detailsTemp(item, userData._id === item._ownerId, deleteItem));
 }
 
-function detailsTemp(item, ownerId) {
+ async function deleteItem(e){
+    e.preventDefault();
+    const id = e.target.dataset.id;
+    await deleteItemById(id);
+    context.page.redirect("/");
+ }
+
+ function renderOwnerBtn( isOwner, deleteItem, id){
+    return isOwner ? html`
+      <div>
+                <a href=”#” class="btn btn-info">Edit</a>
+                <a @click=${deleteItem} data-id=${id}
+                href=”javascript:void(0)” class="btn btn-red">Delete</a>
+            </div>
+    `
+    :"";
+ }
+
+
+function detailsTemp(item, ownerId, deleteItem) {
     const itemImgNameArr = item.img.split("/");
     return html`
     <div class="row space-top">
@@ -32,14 +53,7 @@ function detailsTemp(item, ownerId) {
             <p>Description: <span>${item.description}</span></p>
             <p>Price: <span>${item.price} $</span></p>
             <p>Material: <span>${item.material}</span></p>
-            ${ownerId ?
-                 html`
-            <div>
-                <a href=”#” class="btn btn-info">Edit</a>
-                <a href=”#” class="btn btn-red">Delete</a>
-            </div>`
-            : 
-            ""}
+            ${renderOwnerBtn(ownerId, deleteItem, item._id)}
         </div>
     </div>
     
