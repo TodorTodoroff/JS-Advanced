@@ -151,7 +151,7 @@ describe('E2E tests', function () {
     });
   });
 
-  describe('Navigation bar [ 5 Points ]', () => {
+  describe.only('Navigation bar [ 5 Points ]', () => {
     it('Logged user should see correct navigation [ 2.5 Points ]', async () => {
       // Login user
       const data = mockData.users[0];
