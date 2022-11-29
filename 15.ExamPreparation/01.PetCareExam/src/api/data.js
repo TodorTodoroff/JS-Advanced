@@ -14,10 +14,10 @@ export async function deleteById(id) {
     return del('/data/pets/' + id);
 }
 
-export async function editById(id, data){
-    return put('/data/pets/' + id, data);
+export async function editPet(id, {name, breed, age, weight, image}){
+    return put('/data/pets/' + id, {name, breed, age, weight, image});
 }
 
-export async function createPet(data){
-    return post('/data/pets', data);
+export async function createPet( {name, breed, age, weight, image}){
+    return post('/data/pets',  {name, breed, age, weight, image});
 }

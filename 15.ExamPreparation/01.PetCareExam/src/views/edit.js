@@ -1,4 +1,4 @@
-import { editById, getById } from '../api/data.js';
+import { editPet, getById } from '../api/data.js';
 import { html } from '../lib.js'
 import { createSubmitHandler } from '../util.js';
 
@@ -44,7 +44,7 @@ export async function showEdit(ctx){
         if([name, breed, age, weight, image].some(x => x == '')){
             return alert('All fields are required!');
         }
-        await editById(id, {name, breed, age, weight, image});
+        await editPet(id, {name, breed, age, weight, image});
         ctx.page.redirect('/catalog/' + id);
     }
 }
