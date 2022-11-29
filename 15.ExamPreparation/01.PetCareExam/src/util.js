@@ -5,8 +5,6 @@ export function getUserData() {
 
 export function setUserData(data) {
     sessionStorage.setItem('userData', JSON.stringify(data));
-
-
 }
 
 export function clearUserData() {

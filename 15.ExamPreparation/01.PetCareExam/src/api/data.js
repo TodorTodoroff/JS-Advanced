@@ -1,6 +1,4 @@
-import { del, get } from "./api.js";
-
-
+import { del, get, post, put } from "./api.js";
 
 export async function getAll() {
     return get('/data/pets?sortBy=_createdOn%20desc&distinct=name');
@@ -14,4 +12,12 @@ export async function getById(id) {
 
 export async function deleteById(id) {
     return del('/data/pets/' + id);
+}
+
+export async function editById(id, data){
+    return put('/data/pets/' + id, data);
+}
+
+export async function createPet(data){
+    return post('/data/pets', data);
 }
