@@ -1,11 +1,12 @@
 import { page, render } from './lib.js'
+import { showCatalog } from './views/catalog.js';
 import { showHome } from './views/home.js';
 
 const main = document.getElementById('content');
 
 page(decorateContext);
 page('/', showHome);
-page('/catalog', () => console.log("catalog"));
+page('/catalog', showCatalog);
 page('/catalog/:id', () => console.log("details"));
 page('/edit/:id', () => console.log("edit"));
 page('/create', () => console.log("create"));
