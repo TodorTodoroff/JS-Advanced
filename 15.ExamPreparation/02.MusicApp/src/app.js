@@ -1,9 +1,8 @@
-/**
- *  Import Views
- */
 import {page, render} from './lib.js'
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
+import { showDetails } from './views/details.js';
+import { showEdit } from './views/edit.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { updateNav } from './views/nav.js';
@@ -34,8 +33,8 @@ page('/login', showLogin );
 page('/register', showRegister);
 page('/catalog', showCatalog);
 page('/create', () => console.log('showCreateView'));
-page('/detail/:id', () => console.log('showDetailView'));
-page('/edit/:id', () => console.log('showEditView'));
+page('/details/:id', showDetails);
+page('/edit/:id', showEdit);
 page('/search', () => console.log('showSearchView'));
 
 
