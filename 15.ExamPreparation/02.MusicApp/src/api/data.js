@@ -11,3 +11,7 @@ export async function getById(id) {
 export async function deleteById(id){
     return del('/data/albums/' + id);
 }
+
+export async function updateAlbum(id, {name, imgUrl, price, releaseDate, artist, genre, description} ){
+    return put(`/data/albums/${id}`, {name, imgUrl, price, releaseDate, artist, genre, description});
+}
