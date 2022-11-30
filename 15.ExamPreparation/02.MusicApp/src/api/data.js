@@ -15,3 +15,7 @@ export async function deleteById(id){
 export async function updateAlbum(id, {name, imgUrl, price, releaseDate, artist, genre, description} ){
     return put(`/data/albums/${id}`, {name, imgUrl, price, releaseDate, artist, genre, description});
 }
+
+export async function createAlbum(data){
+    return post('/data/albums', data);
+}
