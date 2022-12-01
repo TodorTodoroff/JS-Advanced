@@ -18,5 +18,8 @@
     "playwright-chromium": "1.9.2",
     "mocha": "8.3.2",
     "chai": "4.3.4"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
