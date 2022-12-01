@@ -2,9 +2,9 @@ import { clearUserData, setUserData } from "../util.js";
 import { get, post } from "./api.js";
 
 const endpoints = {  ///// ADD TEH ENDPOINTS !!! TIMMEH
-    'login' :    ,
-    'register':    ,
-    'logout'
+    'login' :    '/users/login' ,
+    'register':  '/users/register'  ,
+    'logout': '/users/logout'
 }
 
 export async function login(email, password) {
