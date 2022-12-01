@@ -19,3 +19,7 @@ export async function updateAlbum(id, {name, imgUrl, price, releaseDate, artist,
 export async function createAlbum(data){
     return post('/data/albums', data);
 }
+
+export async function searchAlbum(name){
+    return get(`/data/albums?where=name%20LIKE%20%22${name}%22`);
+}

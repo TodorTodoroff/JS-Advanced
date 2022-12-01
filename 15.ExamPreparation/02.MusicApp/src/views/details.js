@@ -32,8 +32,8 @@ export async function showDetails(ctx) {
     const albumId = ctx.params.id;
     const album = await getById(albumId);
 
-    const isLogged = Boolean(ctx.user);
-    const isOwnerAndLogged = isLogged && album._ownerId == ctx.user._id;
+    const isLogged = ctx.user;
+    const isOwnerAndLogged = Boolean(isLogged) && album._ownerId == isLogged._id;
 
     ctx.render(detailsTemplate(album, isOwnerAndLogged, onDelete));
 
