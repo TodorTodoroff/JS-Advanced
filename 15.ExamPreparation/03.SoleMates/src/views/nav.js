@@ -38,5 +38,5 @@ export function updateNav() {
 function onLogout() {
     logout();
     updateNav();
-    page.redirect('/');
+    page.redirect('/catalog');
 }
