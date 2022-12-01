@@ -2,6 +2,7 @@ import {page,render} from './lib.js'
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
 import { showCreate } from './views/create.js';
+import { showDetails } from './views/details.js';
 import { showHome } from './views/home.js';
 import { showLogin } from './views/login.js';
 import { updateNav } from './views/nav.js';
@@ -14,8 +15,9 @@ page(decorateContext);
 page('/',  showHome);
 page('/home', showHome);
 page('/catalog', showCatalog);
-page('/details/:id', () => console.log("show details"));
+page('/details/:id', showDetails);
 page('/search', () => console.log("show search"));
+page('/edit/:id', () => console.log("show edit"));
 page('/create', showCreate);
 page('/login', showLogin);
 page('/register', showRegister);

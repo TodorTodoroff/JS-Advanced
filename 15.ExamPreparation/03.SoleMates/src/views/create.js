@@ -24,7 +24,7 @@ export function showCreate(ctx) {
     ctx.render(createTemplate(createSubmitHandler(onCreate)));
 
     async function onCreate({brand, model, imageUrl, release, designer, value}){
-        if([brand, model, imageUrl, release, designer, value ].some(x => x = '')){
+        if([brand, model, imageUrl, release, designer, value ].some(x => x == '')){
             return alert('All fields are required!');
         }
 
