@@ -15,3 +15,7 @@ export async function getById(id){
 export async function deleteById(id){
     return del('/data/offers/' + id);
 }
+
+export async function editById(id, data){
+    return put('/data/offers/' + id, data);
+}

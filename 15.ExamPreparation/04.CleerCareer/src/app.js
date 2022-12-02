@@ -7,6 +7,7 @@ import { showRegister } from "./views/register.js";
 import { showCatalog } from "./views/catalog.js";
 import { showCreate } from "./views/create.js";
 import { showDetails } from "./views/details.js";
+import { showEdit } from "./views/edit.js";
 
 const main = document.getElementById('main-element');
 
@@ -17,7 +18,7 @@ page('/home', showHome);
 page('/catalog', showCatalog);
 page('/login', showLogin);
 page('/register', showRegister);
-page('/edit/:id', () => console.log('show edit'));
+page('/edit/:id', showEdit);
 page('/create', showCreate);
 page('/details/:id', showDetails);
 
