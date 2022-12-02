@@ -3,6 +3,7 @@ import { page, render } from "./lib.js";
 import { getUserData } from "./util.js";
 import { showHome } from "./views/home.js";
 import { showLogin } from "./views/login.js";
+import { showRegister } from "./views/register.js";
 
 const main = document.getElementById('main-element');
 
@@ -12,7 +13,7 @@ page('/', showHome);
 page('/home', showHome);
 page('/catalog', () => console.log('show catalog'));
 page('/login', showLogin);
-page('/register', () => console.log('show register'));
+page('/register', showRegister);
 page('/edit/:id', () => console.log('show edit'));
 page('/create', () => console.log('show create'));
 
