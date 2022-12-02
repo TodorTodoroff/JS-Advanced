@@ -23,6 +23,9 @@ export function showLogin(ctx) {
     ctx.render(loginTemplate(createSubmitHandler(onLogin)));
 
     async function onLogin({ email, password }) {
+        if(email == '' || password == ''){
+            return alert('All fields are requried!');
+        }
         await login(email, password);
         updateNav();
         ctx.page.redirect('/catalog');
