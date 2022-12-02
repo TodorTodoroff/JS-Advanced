@@ -5,6 +5,7 @@ import { showHome } from "./views/home.js";
 import { showLogin } from "./views/login.js";
 import { showRegister } from "./views/register.js";
 import { showCatalog } from "./views/catalog.js";
+import { showCreate } from "./views/create.js";
 
 const main = document.getElementById('main-element');
 
@@ -16,7 +17,7 @@ page('/catalog', showCatalog);
 page('/login', showLogin);
 page('/register', showRegister);
 page('/edit/:id', () => console.log('show edit'));
-page('/create', () => console.log('show create'));
+page('/create', showCreate);
 
 
 updateNav();
