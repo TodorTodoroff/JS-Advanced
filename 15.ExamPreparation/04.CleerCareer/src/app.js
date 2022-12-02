@@ -6,6 +6,7 @@ import { showLogin } from "./views/login.js";
 import { showRegister } from "./views/register.js";
 import { showCatalog } from "./views/catalog.js";
 import { showCreate } from "./views/create.js";
+import { showDetails } from "./views/details.js";
 
 const main = document.getElementById('main-element');
 
@@ -18,6 +19,7 @@ page('/login', showLogin);
 page('/register', showRegister);
 page('/edit/:id', () => console.log('show edit'));
 page('/create', showCreate);
+page('/details/:id', showDetails);
 
 
 updateNav();
