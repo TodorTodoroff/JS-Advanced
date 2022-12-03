@@ -2,7 +2,7 @@ import { deleteById, getById } from "../api/data.js";
 import { html, nothing } from "../lib.js";
 
 
-const detailsTemplate = (album, isOwner, onDelete) => html`
+const detailsTemplate = (album, isLogged, isOwner, onDelete) => html`
     <section id="details">
         <div id="details-wrapper">
             <p id="details-title">Album Details</p>
@@ -21,10 +21,11 @@ const detailsTemplate = (album, isOwner, onDelete) => html`
             <div id="likes">Likes: <span id="likes-count">0</span></div>
             ${isOwner ? html`
             <div id="action-buttons">
-                <!-- <a href="" id="like-btn">Like</a> -->
+                <a href="" id="like-btn">Like</a>
                 <a href="/edit/${album._id}" id="edit-btn">Edit</a>
                 <a href="javascript:void(0)" @click=${onDelete} id="delete-btn">Delete</a>
-            </div>` : nothing}
+            </div>
+            `: nothing}
         </div>
     </section>`;
 
@@ -36,7 +37,7 @@ export async function showDetails(ctx) {
     const isLogged = Boolean(ctx.user);
     const isOwner = isLogged && ctx.user._id == album._ownerId;
 
-    ctx.render(detailsTemplate(album, isOwner, onDelete));
+    ctx.render(detailsTemplate(album, isLogged, isOwner, onDelete));
 
     async function onDelete(){
         await deleteById(albumId);
