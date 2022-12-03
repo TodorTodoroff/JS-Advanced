@@ -1,27 +1,25 @@
-/**
- *  Import Views
- */
+import { updateNav } from "./views/nav.js";
+import { page, render } from "./lib.js";
+import { getUserData } from "./util.js";
+import { showHome } from "./views/home.js";
+import { showLogin } from "./views/login.js";
+import { showRegister } from "./views/register.js";
+import { showCatalog } from "./views/catalog.js";
+import { showCreate } from "./views/create.js";
 
 
 
-// get main element from index.html
-const main = ;
+const main = document.getElementById('main-container');
 
-/**
- * Create page routing
- * 
- * 
-
+page(decorateContext);
 page('/', showHome);
-page('/catalog', showCatalog);
-page('/catalog/:id', showDetails);
-page('/edit/:id', showEdit);
-page('/create', showCreate);
+page('/home', showHome);
 page('/login', showLogin);
 page('/register', showRegister);
- * 
- */
-page(decorateContext);
+page('/catalog', showCatalog);
+page('/create', showCreate);
+page('/edit/:id', () => console.log('show edit'));
+page('/details/:id', () => console.log('show details'));
 
 
 
