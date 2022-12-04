@@ -44,7 +44,6 @@ export async function showDetails(ctx) {
     const isOwner = isLogged && ctx.user._id == album._ownerId;
 
     const likeCount = await getAllLikeCount(albumId);
-
     let likeCountCurrentUser = {};
 
     if (isLogged) {
