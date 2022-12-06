@@ -1,0 +1,15 @@
+{
+  "name": "03.-company-administration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "companyAdministration.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0"
+  }
+}
